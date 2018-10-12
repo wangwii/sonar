@@ -1,0 +1,14 @@
+version: '2'
+services:
+  sonar:
+    image: sonarqube:6.7.5-alpine
+    restart: always
+    ports:
+      - "9000:9000"
+      # - "9092:9092"
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - SONARQUBE_JDBC_URL=jdbc:mysql://127.0.0.1/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false
+    volumes:
+      - ./plugins:/opt/sonarqube/extensions/plugins
