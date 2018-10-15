@@ -6,6 +6,7 @@ services:
     ports:
       - "9000:9000"
       # - "9092:9092"
+    mem_limit: 5120MB
     environment:
       - SONARQUBE_JDBC_USERNAME=sonar
       - SONARQUBE_JDBC_PASSWORD=sonar
